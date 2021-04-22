@@ -13,4 +13,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">48sp</item>
     </style>
+
+    <!--Estilo labels para backgrounds escuros-->
+    <style
+        name="label_dark_background"
+        parent="TextAppearance.AppCompat.Medium">
+
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>
+
 </resources>
