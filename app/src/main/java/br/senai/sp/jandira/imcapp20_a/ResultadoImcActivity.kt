@@ -11,6 +11,8 @@ class ResultadoImcActivity : AppCompatActivity() {
 
         val txtImc: TextView = findViewById(R.id.text_view_imc)
         val txtStatus: TextView = findViewById(R.id.text_view_status)
+        val txtStatusRisk: TextView = findViewById(R.id.text_view_frase_status)
+        val txtDica: TextView = findViewById(R.id.text_view_dica)
 
         val peso = intent.getDoubleExtra("peso", 0.0)
         val altura = intent.getDoubleExtra("altura", 0.0)
@@ -18,7 +20,13 @@ class ResultadoImcActivity : AppCompatActivity() {
         val imc = calcularImc(peso, altura)
 
         txtImc.text = String.format("%.1f", imc)
-        txtStatus.text = obterStatus(imc)
+
+        val resultados = obterStatus(imc)
+
+        txtStatus.text = resultados[0]
+        txtStatusRisk.text = resultados[1]
+
+        txtDica.text = getDicaDoDia()
 
     }
 }
