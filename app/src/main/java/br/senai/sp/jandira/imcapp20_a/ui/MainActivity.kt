@@ -1,10 +1,11 @@
-package br.senai.sp.jandira.imcapp20_a
+package br.senai.sp.jandira.imcapp20_a.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
-import kotlinx.android.synthetic.main.activity_main.*
+import br.senai.sp.jandira.imcapp20_a.NcdActivity
+import br.senai.sp.jandira.imcapp20_a.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

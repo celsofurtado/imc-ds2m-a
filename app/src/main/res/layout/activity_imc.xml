@@ -13,7 +13,7 @@
     android:layout_height="match_parent"
     android:gravity="bottom"
     android:orientation="vertical"
-    tools:context=".ImcActivity">
+    tools:context=".ui.ImcActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,6 +21,7 @@
         android:src="@drawable/peso_imc"
         android:layout_gravity="center"
         android:layout_marginBottom="32dp"/>
+
 
     <TextView
         android:id="@+id/textView3"

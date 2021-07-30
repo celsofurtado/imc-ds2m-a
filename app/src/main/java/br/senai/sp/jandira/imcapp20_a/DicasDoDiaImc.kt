@@ -3,7 +3,7 @@ package br.senai.sp.jandira.imcapp20_a
 import android.util.Log
 import java.util.*
 
-fun getDicaDoDia() : String {
+fun getDicaDoDiaImc() : String {
 
     val dicas = listOf<String>(
         "Reduza alimentos com gordura, açúcar e sal. Tenha sempre frutas, verduras e legumes na alimentação diária.",

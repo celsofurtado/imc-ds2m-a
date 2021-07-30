@@ -1,8 +1,12 @@
-package br.senai.sp.jandira.imcapp20_a
+package br.senai.sp.jandira.imcapp20_a.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import br.senai.sp.jandira.imcapp20_a.R
+import br.senai.sp.jandira.imcapp20_a.calcularImc
+import br.senai.sp.jandira.imcapp20_a.getDicaDoDiaImc
+import br.senai.sp.jandira.imcapp20_a.obterStatus
 
 class ResultadoImcActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +27,13 @@ class ResultadoImcActivity : AppCompatActivity() {
 
         val resultados = obterStatus(imc)
 
+        // Armazenar os dados no preferences
+        //val editPreferences = SharedPreferences.Editor()
+
         txtStatus.text = resultados[0]
         txtStatusRisk.text = resultados[1]
 
-        txtDica.text = getDicaDoDia()
+        txtDica.text = getDicaDoDiaImc()
 
     }
 }
