@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.util.Log
 import br.senai.sp.jandira.imcapp20_a.model.Usuario
+import br.senai.sp.jandira.imcapp20_a.utils.converterBitmapParaByteArray
 import br.senai.sp.jandira.imcapp20_a.utils.obterDiferencaEntreDatasEmAnos
 import java.time.Duration
 import java.time.LocalDate
@@ -27,6 +28,7 @@ class UsuarioDao(val context: Context, val usuario: Usuario?) {
         dados.put("altura", usuario.altura)
         dados.put("data_nascimento", usuario.dataNascimento.toString())
         dados.put("sexo", usuario.sexo.toString())
+        dados.put("foto", converterBitmapParaByteArray(usuario.foto))
 
         // *** Executar o comando de gravação
         db.insert("tb_usuario", null, dados)
@@ -46,7 +48,8 @@ class UsuarioDao(val context: Context, val usuario: Usuario?) {
             "senha",
             "nome",
             "profissao",
-            "data_nascimento")
+            "data_nascimento",
+        "foto")
 
         // *** Vamos definir o filtro da consulta
         // *** O que estamos fazendo é construir o filtro
@@ -97,6 +100,7 @@ class UsuarioDao(val context: Context, val usuario: Usuario?) {
             editor.putString("profissao", cursor.getString(profissaoIndex))
             editor.putString("idade", obterDiferencaEntreDatasEmAnos(dataNascimento))
             editor.putInt("peso", 0)
+            //editor.putString("foto", cursor.getBlob(5))
             editor.apply()
         }
 

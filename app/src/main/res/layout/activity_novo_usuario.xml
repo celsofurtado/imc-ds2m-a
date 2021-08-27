@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.NovoUsuarioActivity">
+    tools:context=".ui.NovoUsuarioActivity"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_header"
@@ -25,13 +26,16 @@
             app:cardCornerRadius="50dp">
 
             <ImageView
+                android:id="@+id/img_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/hoffs"/>
+                android:src="@drawable/hoffs"
+                android:scaleType="centerCrop"/>
 
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/tv_trocar_foto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -46,19 +50,20 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-    <EditText
-        android:id="@+id/et_nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_header" />
+        <EditText
+            android:id="@+id/et_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/et_profissao"
@@ -68,9 +73,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Profissão"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nome" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/et_peso"
@@ -80,9 +83,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Peso"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_profissao" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/et_data_nascimento"
@@ -93,19 +94,9 @@
         android:focusable="false"
         android:ems="10"
         android:hint="Data de nascimento"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_peso" />
+        android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/bt_gravar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Gravar"
-        app:layout_constraintEnd_toEndOf="@+id/et_data_nascimento"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/et_data_nascimento"
-        app:layout_constraintTop_toBottomOf="@+id/et_senha" />
+
 
     <EditText
         android:id="@+id/et_email"
@@ -114,9 +105,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="E-mail"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_altura" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/et_senha"
@@ -126,9 +115,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Senha"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/et_altura"
@@ -138,7 +125,12 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Altura"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_data_nascimento" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/bt_gravar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gravar" />
+
+</LinearLayout>
