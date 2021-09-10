@@ -4,11 +4,10 @@ import android.content.ContentValues
 import android.content.Context
 import android.util.Log
 import br.senai.sp.jandira.imcapp20_a.model.Usuario
+import br.senai.sp.jandira.imcapp20_a.utils.converterBitmapParaBase64
 import br.senai.sp.jandira.imcapp20_a.utils.converterBitmapParaByteArray
+import br.senai.sp.jandira.imcapp20_a.utils.converterByteArrayParaBitmap
 import br.senai.sp.jandira.imcapp20_a.utils.obterDiferencaEntreDatasEmAnos
-import java.time.Duration
-import java.time.LocalDate
-import java.time.Period
 
 class UsuarioDao(val context: Context, val usuario: Usuario?) {
 
@@ -88,6 +87,7 @@ class UsuarioDao(val context: Context, val usuario: Usuario?) {
             val nomeIndex = cursor.getColumnIndex("nome")
             val profissaoIndex = cursor.getColumnIndex("profissao")
             val dataNascimentoIndex = cursor.getColumnIndex("data_nascimento")
+            val fotoIndex = cursor.getColumnIndex("foto")
 
             val dataNascimento = cursor.getString(dataNascimentoIndex)
 
@@ -99,8 +99,12 @@ class UsuarioDao(val context: Context, val usuario: Usuario?) {
             editor.putString("email", cursor.getString(emailIndex))
             editor.putString("profissao", cursor.getString(profissaoIndex))
             editor.putString("idade", obterDiferencaEntreDatasEmAnos(dataNascimento))
-            editor.putInt("peso", 0)
-            //editor.putString("foto", cursor.getBlob(5))
+            editor.putInt("peso", 55)
+
+            // Converter o byteArray do banco em Bitmap
+            var bitmap = converterByteArrayParaBitmap(cursor.getBlob(fotoIndex))
+            editor.putString("foto", converterBitmapParaBase64(bitmap))
+
             editor.apply()
         }
 
